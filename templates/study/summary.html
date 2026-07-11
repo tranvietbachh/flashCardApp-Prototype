@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Study Session Complete</h1>
+
+<p>You have finished studying this deck.</p>
+
+<hr>
+
+<p>Forgot: {{ session.get("forgot", 0) }}</p>
+
+<p>Hard: {{ session.get("hard", 0) }}</p>
+
+<p>Good: {{ session.get("good", 0) }}</p>
+
+<p>Easy: {{ session.get("easy", 0) }}</p>
+
+<hr>
+
+<a href="{{ url_for('decks.index') }}">
+    Back to Decks
+</a>
+
+{% endblock %}

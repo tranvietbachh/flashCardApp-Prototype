@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Import CSV</h1>
+
+<p>
+    Deck:
+    <strong>{{ deck["name"] }}</strong>
+</p>
+
+<form method="POST" enctype="multipart/form-data">
+
+    <input
+        type="file"
+        name="csv_file"
+        accept=".csv"
+        required
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Upload
+    </button>
+
+</form>
+
+<br>
+
+<p>Required columns:</p>
+
+<pre>
+english,vietnamese
+</pre>
+
+<p>Optional columns:</p>
+
+<pre>
+ipa,
+part_of_speech,
+example,
+example_translation,
+notes,
+difficulty,
+tags
+</pre>
+
+{% endblock %}

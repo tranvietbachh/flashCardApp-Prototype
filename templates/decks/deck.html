@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ deck["name"] }}</h1>
+
+<p>{{ deck["description"] }}</p>
+
+<p>
+    Total Cards:
+    <strong>{{ cards|length }}</strong>
+</p>
+<p>
+<a href="{{ url_for('decks.new_card', deck_id=deck['id']) }}">
+    + Add Card
+</a>
+&nbsp;&nbsp;
+
+<a href="{{ url_for('decks.upload_csv', deck_id=deck['id']) }}">
+    Import CSV
+</a>
+
+ &nbsp;&nbsp;
+
+    <a href="{{ url_for('study.start', deck_id=deck['id']) }}">
+        Start Study
+    </a>
+</p>
+<hr>
+
+{% if cards %}
+
+<table border="1" cellpadding="8">
+
+<tr>
+    <th>English</th>
+    <th>Vietnamese</th>
+    <th>POS</th>
+    <th>Difficulty</th>
+    <th>Actions</th>
+</tr>
+
+{% for card in cards %}
+
+<tr>
+
+<td>{{ card["english"] }}</td>
+
+<td>{{ card["vietnamese"] }}</td>
+
+<td>{{ card["part_of_speech"] }}</td>
+
+<td>{{ card["difficulty"] }}</td>
+
+<td>
+
+<a href="{{ url_for('decks.edit_card', card_id=card['id']) }}">
+Edit
+</a>
+
+|
+
+<form
+    action="{{ url_for('decks.remove_card', card_id=card['id']) }}"
+    method="POST"
+    style="display:inline;">
+
+<button type="submit">
+Delete
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>No cards yet.</p>
+
+{% endif %}
+
+{% endblock %}

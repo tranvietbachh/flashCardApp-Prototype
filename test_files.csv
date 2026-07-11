@@ -1,0 +1,21 @@
+english,vietnamese,ipa,part_of_speech,example,example_translation,notes,difficulty,tags
+continent,châu lục,/ˈkɒntɪnənt/,Noun,Asia is the largest continent.,Châu Á là châu lục lớn nhất.,Major landmass,1,geography
+peninsula,bán đảo,/pəˈnɪnsjələ/,Noun,Korea is a peninsula.,Triều Tiên là một bán đảo.,Landform,2,geography
+archipelago,quần đảo,/ˌɑːkɪˈpeləɡəʊ/,Noun,Indonesia is an archipelago.,Indonesia là một quần đảo.,Island groups,3,geography
+plateau,cao nguyên,/ˈplætəʊ/,Noun,The Tibetan Plateau is the world's highest plateau.,Cao nguyên Tây Tạng là cao nguyên cao nhất thế giới.,Landform,2,geography
+delta,châu thổ,/ˈdeltə/,Noun,The Mekong Delta is famous for rice farming.,Đồng bằng sông Cửu Long nổi tiếng với nghề trồng lúa.,River landform,2,geography
+estuary,cửa sông,/ˈestʃuəri/,Noun,Many birds live near the estuary.,Nhiều loài chim sống gần cửa sông.,River geography,3,geography
+glacier,sông băng,/ˈɡlæsiə(r)/,Noun,The glacier has been melting rapidly.,Sông băng đang tan chảy nhanh chóng.,Climate,2,geography
+equator,xích đạo,/ɪˈkweɪtə(r)/,Noun,The equator divides the Earth into two hemispheres.,Xích đạo chia Trái Đất thành hai bán cầu.,Earth science,1,geography
+hemisphere,bán cầu,/ˈhemɪsfɪə(r)/,Noun,Australia is in the Southern Hemisphere.,Úc nằm ở Nam bán cầu.,Earth science,2,geography
+latitude,vĩ độ,/ˈlætɪtjuːd/,Noun,Latitude measures distance north or south.,Vĩ độ đo khoảng cách về phía bắc hoặc nam.,Coordinates,2,geography
+longitude,kinh độ,/ˈlɒndʒɪtjuːd/,Noun,Longitude measures distance east or west.,Kinh độ đo khoảng cách về phía đông hoặc tây.,Coordinates,2,geography
+erosion,xói mòn,/ɪˈrəʊʒən/,Noun,Erosion changes the landscape over time.,Xói mòn làm thay đổi địa hình theo thời gian.,Geological process,2,geography
+climate,khí hậu,/ˈklaɪmət/,Noun,Vietnam has a tropical climate.,Việt Nam có khí hậu nhiệt đới.,Weather patterns,1,geography
+precipitation,lượng mưa,/prɪˌsɪpɪˈteɪʃən/,Noun,Annual precipitation is very high in rainforests.,Lượng mưa hằng năm rất cao ở rừng mưa nhiệt đới.,Weather,3,geography
+urbanization,đô thị hóa,/ˌɜːbənaɪˈzeɪʃən/,Noun,Urbanization has increased rapidly.,Quá trình đô thị hóa đã tăng nhanh.,Human geography,3,geography
+population density,mật độ dân số,/ˌpɒpjəˈleɪʃən ˈdensəti/,Noun,Singapore has a high population density.,Singapore có mật độ dân số cao.,Human geography,2,geography
+renewable energy,năng lượng tái tạo,/rɪˈnjuːəbl ˈenədʒi/,Noun,Many countries invest in renewable energy.,Nhiều quốc gia đầu tư vào năng lượng tái tạo.,Environment,2,geography
+deforestation,nạn phá rừng,/diːˌfɒrɪˈsteɪʃən/,Noun,Deforestation threatens biodiversity.,Nạn phá rừng đe dọa đa dạng sinh học.,Environment,3,geography
+biodiversity,đa dạng sinh học,/ˌbaɪəʊdaɪˈvɜːsəti/,Noun,Tropical forests have rich biodiversity.,Rừng nhiệt đới có sự đa dạng sinh học phong phú.,Environment,2,geography
+watershed,lưu vực,/ˈwɔːtəʃed/,Noun,The watershed supplies water to millions of people.,Lưu vực này cung cấp nước cho hàng triệu người.,Hydrology,3,geography

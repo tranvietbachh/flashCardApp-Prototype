@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Study Session</h1>
+
+<h2>{{ deck["name"] }}</h2>
+
+{% if card %}
+
+<p>
+Card {{ current }} of {{ total }}
+</p>
+
+<hr>
+
+<h2>{{ card["english"] }}</h2>
+
+{% if show_answer %}
+
+<p>
+<strong>Vietnamese:</strong>
+{{ card["vietnamese"] }}
+</p>
+
+<p>
+<strong>IPA:</strong>
+{{ card["ipa"] }}
+</p>
+
+<p>
+<strong>Part of Speech:</strong>
+{{ card["part_of_speech"] }}
+</p>
+
+<p>
+<strong>Example:</strong><br>
+{{ card["example"] }}
+</p>
+
+<p>
+<strong>Translation:</strong><br>
+{{ card["example_translation"] }}
+</p>
+
+<hr>
+
+<form method="POST"
+      action="{{ url_for('study.review') }}">
+
+    <button type="submit" name="rating" value="forgot">
+        Forgot
+    </button>
+
+    <button type="submit" name="rating" value="hard">
+        Hard
+    </button>
+
+    <button type="submit" name="rating" value="good">
+        Good
+    </button>
+
+    <button type="submit" name="rating" value="easy">
+        Easy
+    </button>
+
+</form>
+
+{% else %}
+
+<form method="POST"
+      action="{{ url_for('study.show_answer') }}">
+
+    <button type="submit">
+        Show Answer
+    </button>
+
+</form>
+
+{% endif %}
+
+{% else %}
+
+<p>No cards available.</p>
+
+{% endif %}
+
+{% endblock %}

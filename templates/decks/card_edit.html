@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Edit Card</h1>
+
+<form method="POST">
+
+<label>English</label><br>
+<input type="text" name="english" value="{{ card['english'] }}"><br><br>
+
+<label>Vietnamese</label><br>
+<input type="text" name="vietnamese" value="{{ card['vietnamese'] }}"><br><br>
+
+<label>IPA</label><br>
+<input type="text" name="ipa" value="{{ card['ipa'] }}"><br><br>
+
+<label>Part of Speech</label><br>
+<input type="text" name="part_of_speech" value="{{ card['part_of_speech'] }}"><br><br>
+
+<label>Example</label><br>
+<textarea name="example">{{ card['example'] }}</textarea><br><br>
+
+<label>Example Translation</label><br>
+<textarea name="example_translation">{{ card['example_translation'] }}</textarea><br><br>
+
+<label>Notes</label><br>
+<textarea name="notes">{{ card['notes'] }}</textarea><br><br>
+
+<label>Difficulty</label><br>
+<input type="number" name="difficulty" value="{{ card['difficulty'] }}" min="1" max="5"><br><br>
+
+<label>Tags</label><br>
+<input type="text" name="tags" value="{{ card['tags'] }}"><br><br>
+
+<button type="submit">
+    Save Changes
+</button>
+
+</form>
+
+{% endblock %}

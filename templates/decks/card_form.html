@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add Card</h1>
+
+<form method="POST">
+
+<label>English</label><br>
+<input type="text" name="english" required><br><br>
+
+<label>Vietnamese</label><br>
+<input type="text" name="vietnamese" required><br><br>
+
+<label>IPA</label><br>
+<input type="text" name="ipa"><br><br>
+
+<label>Part of Speech</label><br>
+<input type="text" name="part_of_speech"><br><br>
+
+<label>Example</label><br>
+<textarea name="example"></textarea><br><br>
+
+<label>Example Translation</label><br>
+<textarea name="example_translation"></textarea><br><br>
+
+<label>Notes</label><br>
+<textarea name="notes"></textarea><br><br>
+
+<label>Difficulty</label><br>
+<input type="number" name="difficulty" value="1" min="1" max="5"><br><br>
+
+<label>Tags</label><br>
+<input type="text" name="tags"><br><br>
+
+<button type="submit">
+    Save Card
+</button>
+
+</form>
+
+{% endblock %}

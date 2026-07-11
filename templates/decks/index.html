@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Decks</h1>
+
+<a href="{{ url_for('decks.new_deck') }}">
+    Create Deck
+</a>
+
+<hr>
+
+{% if decks %}
+
+<ul>
+
+{% for deck in decks %}
+
+<div>
+
+    <h3>
+        <a href="{{ url_for('decks.view_deck', deck_id=deck['id']) }}">
+            {{ deck["name"] }}
+        </a>
+    </h3>
+
+    <p>{{ deck["description"] }}</p>
+
+    <p>{{ deck["card_count"] }} cards</p>
+
+</div>  
+
+<hr>
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>No decks created yet.</p>
+
+{% endif %}
+
+{% endblock %}
