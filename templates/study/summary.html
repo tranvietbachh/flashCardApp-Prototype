@@ -4,22 +4,53 @@
 
 <h1>Study Session Complete</h1>
 
-<p>You have finished studying this deck.</p>
+<div class="study-container">
 
-<hr>
+    <div class="study-card">
 
-<p>Forgot: {{ session.get("forgot", 0) }}</p>
+        <h2>Session Summary</h2>
 
-<p>Hard: {{ session.get("hard", 0) }}</p>
+        <p class="study-hint">
+            You have finished studying this session.
+        </p>
 
-<p>Good: {{ session.get("good", 0) }}</p>
+        <hr>
 
-<p>Easy: {{ session.get("easy", 0) }}</p>
+        <table>
+            <tr>
+                <th>Rating</th>
+                <th>Cards</th>
+            </tr>
 
-<hr>
+            <tr>
+                <td>Forgot</td>
+                <td>{{ session.get("forgot", 0) }}</td>
+            </tr>
 
-<a href="{{ url_for('decks.index') }}">
-    Back to Decks
-</a>
+            <tr>
+                <td>Hard</td>
+                <td>{{ session.get("hard", 0) }}</td>
+            </tr>
+
+            <tr>
+                <td>Good</td>
+                <td>{{ session.get("good", 0) }}</td>
+            </tr>
+
+            <tr>
+                <td>Easy</td>
+                <td>{{ session.get("easy", 0) }}</td>
+            </tr>
+        </table>
+
+        <div class="actions" style="justify-content:center; margin-top:30px;">
+            <a href="{{ url_for('decks.index') }}" class="btn">
+                Back to Decks
+            </a>
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

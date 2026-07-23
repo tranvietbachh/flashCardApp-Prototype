@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>FlashCard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
-<nav>
-    <a href="/">Dashboard</a>
-    <a href="/decks">Decks</a>
-    <a href="/study">Study</a>
-    <a href="/settings">Settings</a>
-</nav>
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/decks">Decks</a>
+        <a href="/study">Study</a>
+        <a href="/settings">Settings</a>
+    </nav>
 
-<hr>
+    <div class="container">
 
-{% block content %}
-{% endblock %}
+        {% block content %}
+        {% endblock %}
+
+    </div>
 
 </body>
+
 </html>

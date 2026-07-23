@@ -1,5 +1,5 @@
 from flask import Flask
-
+import os
 from routes.dashboard import dashboard
 from routes.decks import decks
 from routes.study import study
@@ -15,7 +15,9 @@ app.register_blueprint(decks)
 app.register_blueprint(study)
 app.register_blueprint(settings)
 
-init_db()
+
+if not os.path.exists("database/flashcard.db"):
+    init_db()
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, abort, session, redirect, url_for, request
-
+from services.sm2 import update_review
+from services.card_service import get_card, save_review
 from services.deck_service import get_deck
-from services.study_service import get_study_cards
+from services.study_service import get_study_cards, get_due_cards
 
 study = Blueprint("study", __name__)
 
@@ -67,24 +68,59 @@ def show_answer():
 
     return redirect(url_for("study.session_page"))
 
-@study.route("/study/review", methods=["POST"])
+@study.route("/study/review", methods=["GET","POST"])
 def review():
+    
+    if request.method == "POST":
+        rating = request.form.get("rating")
 
-    rating = request.form["rating"]
+        if rating:
+            
+            session[rating] = session.get(rating, 0) + 1
 
-    if rating == "forgot":
-        session["forgot"] = session.get("forgot", 0) + 1
+            deck_id = session.get("study_deck")
+            current_index = session.get("current_index", 0)
+            mode = session.get("study_mode", "deck")
 
-    elif rating == "hard":
-        session["hard"] = session.get("hard", 0) + 1
+            cards = get_study_cards(deck_id) if mode == "deck" else get_due_cards()
 
-    elif rating == "good":
-        session["good"] = session.get("good", 0) + 1
+            if current_index < len(cards):
+                card = get_card(cards[current_index]["id"])
+                updated = update_review(card, rating)
+                save_review(card["id"], updated)
 
-    elif rating == "easy":
-        session["easy"] = session.get("easy", 0) + 1
+            session["current_index"] = current_index + 1
+            session["show_answer"] = False
 
-    session["current_index"] += 1
+        return redirect(url_for("study.session_page"))
+
+
+    session["current_index"] = 0
     session["show_answer"] = False
+    
+   
+    for r in ["forgot", "hard", "good", "easy"]:
+        session[r] = 0
 
     return redirect(url_for("study.session_page"))
+
+@study.route("/study")
+def study_home():
+
+    cards = get_due_cards()
+
+    deck_summary = {}
+
+    for card in cards:
+        deck = card["deck_name"]
+
+        if deck not in deck_summary:
+            deck_summary[deck] = 0
+
+        deck_summary[deck] += 1
+
+    return render_template(
+        "study/index.html",
+        due_count=len(cards),
+        deck_summary=deck_summary
+    )

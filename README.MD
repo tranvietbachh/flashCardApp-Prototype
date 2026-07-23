@@ -1,21 +1,27 @@
+FlashCard
+
 Still in prototype phase
 
--> Runs on flask backend
+Runs on a Flask backend.
+Set up a virtual environment (venv), install the required dependencies, then run app.py.
+Current Proof of Concept
 
-Setup venv, install requirements then run app.py
+The current prototype supports:
 
-Current proof of concept, can upload csv to import , create/edit flash cards, review current provides how many forgot, hard, easy...
-test_files.csv contains current test dataset,
+Uploading vocabulary through CSV import.
+Creating, editing, and deleting flashcards.
+Organizing flashcards into decks.
+Studying cards one at a time.
+Revealing answers and rating recall as Forgot, Hard, Good, or Easy.
+Displaying a simple session summary showing the number of Forgot, Hard, Good, and Easy responses.
 
+A sample dataset is provided in test_files.csv for testing the application.
 
-
-To do:
-
-Implement SM -2 algorithm for flash card queue -> Done as function
-Process: add SM-2 requred variables to databse, return due cards today, update 
-Audio features
-Customization and settings
-Improved study tab/dashboard
-
-
- 
+To Do
+Implement SM-2 algorithm for flash card queue (function completed)
+Add SM-2 required variables to the database.
+Return only cards due for review today.
+Update card scheduling after each review.
+Audio features.
+Customization and settings.
+Improved study tab/dashboard.

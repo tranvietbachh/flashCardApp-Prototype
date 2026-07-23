@@ -2,87 +2,133 @@
 
 {% block content %}
 
-<h1>Study Session</h1>
+<div class="study-container">
 
-<h2>{{ deck["name"] }}</h2>
+    <h1>Study Session</h1>
 
-{% if card %}
+    <p class="study-progress">
+        {{ deck["name"] }} • Card {{ current }} of {{ total }}
+    </p>
 
-<p>
-Card {{ current }} of {{ total }}
-</p>
+    {% if card %}
 
-<hr>
+    <div class="study-card">
 
-<h2>{{ card["english"] }}</h2>
+        <h2 class="study-word">
+            {{ card["english"] }}
+        </h2>
 
-{% if show_answer %}
+        {% if show_answer %}
 
-<p>
-<strong>Vietnamese:</strong>
-{{ card["vietnamese"] }}
-</p>
+        <div class="study-answer">
 
-<p>
-<strong>IPA:</strong>
-{{ card["ipa"] }}
-</p>
+            <p>
+                <strong>{{ card["vietnamese"] }}</strong>
+            </p>
 
-<p>
-<strong>Part of Speech:</strong>
-{{ card["part_of_speech"] }}
-</p>
+            <p>{{ card["ipa"] }}</p>
 
-<p>
-<strong>Example:</strong><br>
-{{ card["example"] }}
-</p>
+            <p>{{ card["part_of_speech"] }}</p>
 
-<p>
-<strong>Translation:</strong><br>
-{{ card["example_translation"] }}
-</p>
+            <br>
 
-<hr>
+            <p>{{ card["example"] }}</p>
 
-<form method="POST"
-      action="{{ url_for('study.review') }}">
+            <p>{{ card["example_translation"] }}</p>
 
-    <button type="submit" name="rating" value="forgot">
-        Forgot
-    </button>
+        </div>
 
-    <button type="submit" name="rating" value="hard">
-        Hard
-    </button>
+        <form method="POST"
+              action="{{ url_for('study.review') }}"
+              class="rating-buttons">
 
-    <button type="submit" name="rating" value="good">
-        Good
-    </button>
+            <button type="submit" name="rating" value="forgot">
+                Forgot
+            </button>
 
-    <button type="submit" name="rating" value="easy">
-        Easy
-    </button>
+            <button type="submit" name="rating" value="hard">
+                Hard
+            </button>
 
-</form>
+            <button type="submit" name="rating" value="good">
+                Good
+            </button>
 
-{% else %}
+            <button type="submit" name="rating" value="easy">
+                Easy
+            </button>
 
-<form method="POST"
-      action="{{ url_for('study.show_answer') }}">
+        </form>
 
-    <button type="submit">
-        Show Answer
-    </button>
+        {% else %}
 
-</form>
+        <p class="study-hint">
+            Think of the answer before revealing it.
+        </p>
 
-{% endif %}
+       <div class="actions" style="justify-content:center;">
 
-{% else %}
+   <button
+    type="button"
+    onclick="speakWord()"
+    title="Pronounce"
+    style="
+        background:#ececec;
+        color:#333;
+        border:1px solid #ccc;
+        border-radius:8px;
+        padding:8px 14px;
+        font-size:15px;
+        cursor:pointer;
+        height:34px;
+        line-height:1;
+        margin-top:22px;  
+    ">
+    Audio
+</button>
 
-<p>No cards available.</p>
+    <form method="POST"
+          action="{{ url_for('study.show_answer') }}"
+          style="display:inline">
 
-{% endif %}
+        <button type="submit">
+            Show Answer
+        </button>
 
+    </form>
+
+</div>
+        {% endif %}
+
+    </div>
+
+    {% else %}
+
+    <div class="study-card">
+        <h2>All cards completed.</h2>
+    </div>
+
+    {% endif %}
+
+</div>
+<script>
+function speakWord() {
+
+    const word = "{{ card['english'] }}";
+
+    if ("speechSynthesis" in window) {
+
+        speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(word);
+
+        utterance.lang = "en-US";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        speechSynthesis.speak(utterance);
+    }
+}
+</script>
 {% endblock %}
+

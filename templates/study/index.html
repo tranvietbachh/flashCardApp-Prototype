@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Study</h1>
+
+<div class="card">
+
+    <h2>Today's Review</h2>
+
+    <p>
+        <strong>{{ due_count }}</strong> cards are due today.
+    </p>
+
+    {% if due_count > 0 %}
+
+        <a href="{{ url_for('study.review') }}"
+           class="btn">
+            Start Review
+        </a>
+
+    {% else %}
+
+        <p>You're all caught up!</p>
+
+    {% endif %}
+
+</div>
+
+{% if deck_summary %}
+
+<div class="card">
+
+    <h2>Due by Deck</h2>
+
+    <table>
+
+        <tr>
+            <th>Deck</th>
+            <th>Due Cards</th>
+        </tr>
+
+        {% for deck, count in deck_summary.items() %}
+
+        <tr>
+            <td>{{ deck }}</td>
+            <td>{{ count }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

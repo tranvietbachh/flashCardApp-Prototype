@@ -1,0 +1,21 @@
+english,vietnamese,ipa,part_of_speech,example,example_translation,notes,difficulty,tags
+vehicle,phương tiện,/ˈviːəkl/,Noun,A bicycle is an environmentally friendly vehicle.,Xe đạp là phương tiện thân thiện với môi trường.,General,1,transport
+commute,đi làm hằng ngày,/kəˈmjuːt/,Verb,Many people commute by train.,Nhiều người đi làm bằng tàu hỏa.,Daily life,2,transport
+traffic,jiao thông,/ˈtræfɪk/,Noun,Traffic is heavy during rush hour.,Giao thông rất đông vào giờ cao điểm.,Roads,1,transport
+congestion,ùn tắc,/kənˈdʒestʃən/,Noun,Traffic congestion wastes time.,Ùn tắc giao thông làm lãng phí thời gian.,Roads,3,transport
+intersection,ngã tư,/ˌɪntəˈsekʃən/,Noun,Turn left at the next intersection.,Rẽ trái ở ngã tư tiếp theo.,Roads,2,transport
+highway,đường cao tốc,/ˈhaɪweɪ/,Noun,The highway connects two cities.,Đường cao tốc nối hai thành phố.,Roads,1,transport
+subway,tàu điện ngầm,/ˈsʌbweɪ/,Noun,The subway is fast and convenient.,Tàu điện ngầm nhanh và thuận tiện.,Public transport,1,transport
+platform,sân ga,/ˈplætfɔːm/,Noun,The train is waiting at Platform 2.,Tàu đang đợi ở sân ga số 2.,Railway,2,transport
+departure,khởi hành,/dɪˈpɑːtʃə(r)/,Noun,Please check the departure board.,Hãy kiểm tra bảng khởi hành.,Travel,2,transport
+arrival,đến nơi,/əˈraɪvl/,Noun,The arrival time has changed.,Thời gian đến đã thay đổi.,Travel,1,transport
+fare,giá vé,/feə(r)/,Noun,The bus fare is inexpensive.,Giá vé xe buýt khá rẻ.,Travel,2,transport
+ticket,vé,/ˈtɪkɪt/,Noun,You need a ticket before boarding.,Bạn cần có vé trước khi lên xe.,Travel,1,transport
+boarding,lên xe,/ˈbɔːdɪŋ/,Noun,Boarding begins in ten minutes.,Việc lên máy bay bắt đầu sau mười phút.,Travel,2,transport
+destination,điểm đến,/ˌdestɪˈneɪʃən/,Noun,Paris is our final destination.,Paris là điểm đến cuối cùng của chúng tôi.,Travel,2,transport
+schedule,lịch trình,/ˈskedʒuːl/,Noun,The train schedule has changed.,Lịch trình tàu đã thay đổi.,Travel,2,transport
+delay,trì hoãn,/dɪˈleɪ/,Noun,The flight was delayed by bad weather.,Chuyến bay bị hoãn vì thời tiết xấu.,Travel,2,transport
+pedestrian,người đi bộ,/pəˈdestriən/,Noun,Drivers should stop for pedestrians.,Tài xế nên nhường người đi bộ.,Road safety,2,transport
+crosswalk,vạch qua đường,/ˈkrɒswɔːk/,Noun,Use the crosswalk to cross safely.,Hãy sử dụng vạch qua đường để sang đường an toàn.,Road safety,2,transport
+helmet,mũ bảo hiểm,/ˈhelmɪt/,Noun,Always wear a helmet when cycling.,Luôn đội mũ bảo hiểm khi đi xe đạp.,Safety,1,transport
+seatbelt,dây an toàn,/ˈsiːtbelt/,Noun,Fasten your seatbelt before driving.,Hãy thắt dây an toàn trước khi lái xe.,Safety,1,transport

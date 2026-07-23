@@ -18,7 +18,7 @@ def import_csv(deck_id, file):
         raise ValueError(
             "CSV must contain 'english' and 'vietnamese' columns."
         )
-
+    
     for row in reader:
 
         if not row["english"].strip():

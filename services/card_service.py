@@ -1,5 +1,5 @@
 from database.database import query_db, execute_db
-
+from datetime import date
 
 def get_cards(deck_id):
     return query_db(
@@ -37,6 +37,8 @@ def create_card(
     difficulty,
     tags
 ):
+    today = date.today().isoformat()
+
     execute_db(
         """
         INSERT INTO cards(
@@ -49,9 +51,16 @@ def create_card(
             example_translation,
             notes,
             difficulty,
-            tags
+            tags,
+            ease_factor,
+            interval,
+            repetitions,
+            due_date,
+            last_review,
+            reviews,
+            lapses
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             deck_id,
@@ -63,10 +72,16 @@ def create_card(
             example_translation,
             notes,
             difficulty,
-            tags
+            tags,
+            2.5,        # ease_factor
+            0,          # interval
+            0,          # repetitions
+            today,      # due_date
+            None,       # last_review
+            0,          # reviews
+            0           # lapses
         )
     )
-
 
 def update_card(
     card_id,
@@ -114,4 +129,57 @@ def delete_card(card_id):
     execute_db(
         "DELETE FROM cards WHERE id=?",
         (card_id,)
+    )
+
+def save_review(card_id, updated):
+    execute_db(
+        """
+        UPDATE cards
+        SET
+            interval = ?,
+            ease_factor = ?,
+            repetitions = ?,
+            due_date = ?,
+            last_review = ?,
+            reviews = ?,
+            lapses = ?
+        WHERE id = ?
+        """,
+        (
+            updated["interval"],
+            updated["ease_factor"],
+            updated["repetitions"],
+            updated["due_date"],
+            updated["last_review"],
+            updated["reviews"],
+            updated["lapses"],
+            card_id
+        )
+    )
+
+def save_review(card_id, review):
+
+    execute_db(
+        """
+        UPDATE cards
+        SET
+            ease_factor = ?,
+            interval = ?,
+            repetitions = ?,
+            due_date = ?,
+            last_review = ?,
+            reviews = ?,
+            lapses = ?
+        WHERE id = ?
+        """,
+        (
+            review["ease_factor"],
+            review["interval"],
+            review["repetitions"],
+            review["due_date"],
+            review["last_review"],
+            review["reviews"],
+            review["lapses"],
+            card_id
+        )
     )

@@ -4,37 +4,30 @@
 
 <h1>Decks</h1>
 
-<a href="{{ url_for('decks.new_deck') }}">
-    Create Deck
-</a>
-
-<hr>
+<div class="actions">
+    <a href="{{ url_for('decks.new_deck') }}" class="btn">
+        + Create Deck
+    </a>
+</div>
 
 {% if decks %}
 
-<ul>
+    {% for deck in decks %}
 
-{% for deck in decks %}
+    <div class="card">
 
-<div>
-
-    <h3>
-        <a href="{{ url_for('decks.view_deck', deck_id=deck['id']) }}">
+        <a href="{{ url_for('decks.view_deck', deck_id=deck['id']) }}"
+           class="deck-title">
             {{ deck["name"] }}
         </a>
-    </h3>
 
-    <p>{{ deck["description"] }}</p>
+        <p>{{ deck["description"] }}</p>
 
-    <p>{{ deck["card_count"] }} cards</p>
+        <p><strong>{{ deck["card_count"] }}</strong> cards</p>
 
-</div>  
+    </div>
 
-<hr>
-
-{% endfor %}
-
-</ul>
+    {% endfor %}
 
 {% else %}
 

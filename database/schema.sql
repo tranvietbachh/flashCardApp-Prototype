@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS progress;
 DROP TABLE IF EXISTS cards;
 DROP TABLE IF EXISTS decks;
 
@@ -26,21 +25,15 @@ CREATE TABLE cards (
     difficulty INTEGER DEFAULT 1,
     tags TEXT,
 
-    FOREIGN KEY(deck_id) REFERENCES decks(id)
-);
-
-CREATE TABLE progress (
-    card_id INTEGER PRIMARY KEY,
-
-    interval_days INTEGER DEFAULT 0,
     ease_factor REAL DEFAULT 2.5,
+    interval INTEGER DEFAULT 0,
     repetitions INTEGER DEFAULT 0,
 
-    due_date DATE,
+    due_date DATE DEFAULT CURRENT_DATE,
     last_review DATE,
 
     reviews INTEGER DEFAULT 0,
     lapses INTEGER DEFAULT 0,
 
-    FOREIGN KEY(card_id) REFERENCES cards(id)
+    FOREIGN KEY(deck_id) REFERENCES decks(id)
 );

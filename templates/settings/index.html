@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Settings</h1>
+
+<div class="card">
+
+    <h2>Database</h2>
+
+    <p>
+        Reset the application database and remove all decks, cards and study progress.
+    </p>
+
+    <form method="POST"
+          action="{{ url_for('settings.reset_database') }}"
+          onsubmit="return confirm('Are you sure? This will permanently delete all data.');">
+
+        <button type="submit">
+            Reset Database
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
